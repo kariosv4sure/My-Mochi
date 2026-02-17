@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffb3ff, #c399ff, #e0b3ff, #ff99c8);
+  background-size: 300% 300%;
+  animation: gradientShift 15s ease infinite;
+  color: white;
+  overflow-x: hidden;
+  text-align: center;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+}
+
+#confession {
+  font-size: 1.4em;
+  margin: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  max-width: 90%;
+  line-height: 1.6em;
+}
+
+#confession.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heart-btn {
+  font-size: 4em;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-top: 15px;
+  color: #ff99c8;
+}
+
+.heart-btn:hover {
+  transform: scale(1.3);
+  color: #c399ff;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.8em;
+  animation: floatUp 5s linear infinite;
+  opacity: 0.9;
+  color: #ffb3ff;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+}
+
+#instructions {
+  font-size: 1em;
+  margin-top: 10px;
+  opacity: 0.9;
+  color: white;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 10px #c399ff; }
+  50% { text-shadow: 0 0 30px #ffb3ff, 0 0 50px #c399ff; }
+  100% { text-shadow: 0 0 10px #c399ff; }
+}
+
+/* sparkle for mouse trail */
+.sparkle {
+  position: absolute;
+  font-size: 14px;
+  pointer-events: none;
+  animation: sparkleFade 0.8s forwards;
+  color: #ffb3ff;
+}
+
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.5); }
+}
+
+@media screen and (max-width: 500px) {
+  h1 { font-size: 2em; }
+  #confession { font-size: 1.2em; }
+  .heart-btn { font-size: 3em; }
+}
